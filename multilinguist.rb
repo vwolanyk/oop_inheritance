@@ -53,3 +53,17 @@ class Multilinguist
   end
 end
 
+#   **** MATH GENIUS CLASS
+
+class MathGenius < Multilinguist
+
+
+end
+
+
+#   **** QUOTE COLLECTOR CLASS
+
+class Quoter < Multilinguist
+
+
+end

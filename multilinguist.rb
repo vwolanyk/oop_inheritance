@@ -57,6 +57,12 @@ end
 
 class MathGenius < Multilinguist
 
+# report_method
+# Takes infinite arguments for numbers returns sum
+
+  def report_total(*numbers)
+    numbers.sum
+  end
 
 end
 
@@ -65,5 +71,45 @@ end
 
 class Quoter < Multilinguist
 
+  attr_reader :quotes
 
+  def initialize
+    @quotes = {}
+  end
+
+
+  def new_quote(topic, quote)
+
+
+    @quotes[topic.to_sym] = quote
+
+  end
+
+  def share_random_quote
+
+    say_in_local_language(@quotes.values[rand(@quotes.length)])
+  end
+
+  def quote_by_topic(topic)
+    @quotes.each do |k,v|
+      if k == topic.to_sym
+        puts v
+        return v
+      end
+      end
+
+  end
 end
+
+# TEST CASES FOR Quoter
+me = Quoter.new
+
+me.new_quote("freak", "What The Freak")
+me.new_quote("world","Freak The World")
+me.new_quote("gambling", "Lucky Old Ludite!")
+
+p me.quotes
+
+puts me.share_random_quote
+
+me.quote_by_topic("freak")
